@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Survive by Cato Centinel Farmer, book one in the After the Flash series. Explore the launch page and buy the book on Amazon.">
+  <title>Survive | After the Flash Book 1</title>
+  <style>
+    :root {
+      --bg: #090d14;
+      --paper: #f3ede2;
+      --ink: #f6efe4;
+      --muted: rgba(78, 55, 19, 0.72);
+      --line: rgba(246, 239, 228, 0.16);
+      --accent: #ff8f3a;
+      --accent-deep: #b54a18;
+      --panel-solid: #101722;
+      --max: 1180px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255, 143, 58, 0.14), transparent 24%),
+        linear-gradient(180deg, #0b1119 0%, #0a0d13 50%, #090b10 100%);
+      color: rgba(246, 239, 228, 0.86);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-width {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: absolute;
+      inset: 0 0 auto 0;
+      z-index: 20;
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid rgba(246, 239, 228, 0.28);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(5, 7, 11, 0.42);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: clip;
+      background:
+        linear-gradient(90deg, rgba(5, 7, 11, 0.82) 0%, rgba(5, 7, 11, 0.46) 42%, rgba(5, 7, 11, 0.72) 100%),
+        url("assets/3d%202.jpg") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 180px;
+      background: linear-gradient(180deg, rgba(9, 13, 20, 0) 0%, rgba(9, 13, 20, 0.92) 100%);
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      position: relative;
+      z-index: 1;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 410px);
+      align-items: end;
+      gap: 2rem;
+      padding: 7rem 0 4.5rem;
+    }
+
+    .hero-copy {
+      max-width: 35rem;
+      animation: rise 900ms ease both;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid rgba(246, 239, 228, 0.2);
+      border-radius: 999px;
+      background: rgba(6, 8, 12, 0.42);
+      backdrop-filter: blur(8px);
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ffd0ad;
+    }
+
+    .title-lockup {
+      margin-top: 1.35rem;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 0.9;
+    }
+
+    .series {
+      display: block;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(246, 239, 228, 0.72);
+      margin-bottom: 0.9rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(4.2rem, 15vw, 8rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    .hero-text {
+      margin-top: 1.3rem;
+      max-width: 34rem;
+      line-height: 1.7;
+      font-size: 1.02rem;
+      color: rgba(246, 239, 228, 0.72);
+    }
+    .section-text,
+    .meta-copy,
+    .footer-copy {
+      margin: 1.3rem 0 0;
+      max-width: 34rem;
+      line-height: 1.7;
+      font-size: 1.02rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    .button,
+    .button-ghost {
+      min-height: 3.25rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .button {
+      color: #fff7ef;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+      box-shadow: 0 16px 36px rgba(181, 74, 24, 0.32);
+    }
+
+    .button-ghost {
+      color: var(--ink);
+      background: rgba(8, 10, 16, 0.36);
+      border: 1px solid rgba(246, 239, 228, 0.18);
+      backdrop-filter: blur(8px);
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .button-ghost:hover,
+    .button-ghost:focus-visible,
+    .book-link:hover,
+    .book-link:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .hero-book {
+      justify-self: end;
+      align-self: center;
+      width: min(100%, 400px);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .book-link {
+      display: block;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(246, 239, 228, 0.16);
+      background: rgba(6, 8, 12, 0.54);
+      transition: transform 180ms ease;
+    }
+
+    .book-link img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .book-note {
+      margin-top: 0.9rem;
+      text-align: center;
+      color: rgba(246, 239, 228, 0.8);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .section-heading {
+      margin: 0.9rem 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.98;
+      max-width: 12ch;
+    }
+
+    .chapter-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.8rem 0 0;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .chapter-list li {
+      padding-bottom: 0.95rem;
+      border-bottom: 1px solid var(--line);
+      color: rgba(246, 239, 228, 0.86);
+      line-height: 1.6;
+    }
+
+    .chapter-list strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.02rem;
+      color: var(--paper);
+    }
+
+    .image-panel {
+      min-height: 520px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(246, 239, 228, 0.12);
+      background: var(--panel-solid);
+    }
+
+    .image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .details {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2.2rem 0;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .detail-grid article {
+      padding-right: 1rem;
+    }
+
+    .detail-grid strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffd0ad;
+    }
+
+    .detail-grid span {
+      color: rgba(246, 239, 228, 0.86);
+      line-height: 1.6;
+    }
+
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(255, 143, 58, 0.16), rgba(16, 23, 34, 0.88)),
+        rgba(8, 10, 16, 0.86);
+      border: 1px solid rgba(246, 239, 228, 0.12);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+
+    .final-cta::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      top: -120px;
+      right: -100px;
+      border-radius: 50%;
+      background: rgba(255, 143, 58, 0.14);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .cta-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .site-footer {
+      padding: 2rem 0 2.5rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(26px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .hero-copy,
+      .hero-book {
+        animation: none;
+      }
+
+      .button,
+      .button-ghost,
+      .book-link {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .hero-layout,
+      .split,
+      .cta-layout,
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        color: rgba(246, 239, 228, 0.86);
+      }
+
+      .hero-layout {
+        min-height: auto;
+        padding: 7rem 0 3.5rem;
+      }
+
+      .hero-book {
+        justify-self: start;
+        max-width: 330px;
+      }
+
+      .image-panel {
+        min-height: 420px;
+      }
+
+      .footer-row,
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-width {
+        width: min(var(--max), calc(100% - 1.25rem));
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.8rem 1rem;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 18vw, 5rem);
+      }
+
+      .section,
+      .site-footer {
+        padding-top: 4rem;
+      }
+
+      .hero-layout {
+        padding-top: 6.5rem;
+      }
+
+      .final-cta,
+      .image-panel {
+        border-radius: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-width nav">
+      <a class="brand" href="#top" aria-label="Survive home">
+        <span class="brand-mark">SF</span>
+        <span>Survive</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#author">Author</a>
+        <a href="https://www.amazon.com/Survive-After-Flash-Book-1-ebook/dp/B0GT2GH4PQ/" target="_blank" rel="noreferrer">Amazon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="page-width hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow">Now available</span>
+          <div class="title-lockup">
+            <span class="series">After the Flash Series</span>
+            <h1>Survive</h1>
+          </div>
+          <p>
+            What would you do if civilization hit the reset button? The natural reaction is to run to a tyrant who promises to destroy the enemy of the hour. But that is not the best reaction. There are better choices if you are prepared to make them. Look at all the ruined and abandoned cities the ancients once thrived in. They were not ready. Are you prepared? Written by a former intelligence professional who advanced the kill chain on AI while separately digging too deep into experimentations and facts that no one needs to know. This series includes real survival advice and myth debunking about everything from bioweapons, to fallout, to AI. If Armageddon comes, then at least you will be prepared to survive. If not, then you will have taken an entertaining read through the adventures of Jack as he saves his family from the fallout, both radioactive particles and counteractive peoples.
+          </p>
+          <p>
+            Most people have beliefs that will get them killed if the conditions are right and the belief is wrong. Nuclear war is one of those tragic cop outs as the brain overloads from the tragedy of it all and shuts down to it just being the end. It will definitely not be the end. No nukes are coming for South America and Africa. Do they not have internet backbone in those places representing the collective knowledge of humanity? Surely they do and they retain more knowledge than all the libraries of even 100 years ago. Think of humanity on a spectrum of toughness, fragile cities, unstable nations, the redundant internet, and the replicating tribe. The radiation is going to hurt, but it can't stop every tribe on the face of the Earth. It can't even stop the internet, contrary to some gravely mistaken beliefs. Civilization can march back millennia under the rotten corrupted feet of soulless zombies. Survivors rebuilding civilization while correcting for the excesses of the past can march it forward.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://www.amazon.com/Survive-After-Flash-Book-1-ebook/dp/B0GT2GH4PQ/" target="_blank" rel="noreferrer">Buy on Amazon</a>
+          </div>
+        </div>
+
+        <div class="hero-book">
+          <a class="book-link" href="https://www.amazon.com/Survive-After-Flash-Book-1-ebook/dp/B0GT2GH4PQ/" target="_blank" rel="noreferrer" aria-label="Buy Survive on Amazon">
+            <img src="assets/dukevan ebook.jpg" alt="Book cover for Survive by Cato Centinel Farmer">
+          </a>
+          <div class="book-note">Tap the cover to visit the Amazon store</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section details">
+      <div class="page-width detail-grid">
+        <article>
+          <strong>Author</strong>
+          <span>Cato Centinel Farmer</span>
+        </article>
+        <article>
+          <strong>Title</strong>
+          <span>Survive</span>
+        </article>
+        <article>
+          <strong>Series</strong>
+          <span>After the Flash, Book 1</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="author">
+      <div class="page-width split">
+        <div class="image-panel">
+          <img src="assets/author_bio_pic.jpg" alt="Author portrait for Cato Centinel Farmer">
+        </div>
+        <div>
+          <span class="eyebrow">Author</span>
+          <h2 class="section-heading">Cato Centinel Farmer</h2>
+          <p>
+            Cato the Elder rose from modest rural origins to become a soldier, consul, and censor, championing traditional Roman values of frugality, hard work, and moral rigor. He believed Rome’s strength came from the character of its citizens and famously warned against decadence and foreign luxury that might weaken the Republic. His relentless insistence that “Carthage must be destroyed” reflected not only geopolitical caution but also his belief that Rome had to defend its civilization with vigilance.
+          </p>
+          <p>
+            His great-grandson, Cato the Younger, carried that moral severity into the final crisis of the Roman Republic. A committed Stoic, he believed virtue and justice were higher than personal survival or political convenience. As Rome slid toward dictatorship under Julius Caesar, Cato became the most famous defender of republican liberty and constitutional government. Refusing compromise with tyranny, he chose death rather than submission after Caesar’s victory, turning his life into a lasting symbol of principled resistance.
+          </p>
+          <p>
+            The two Catos embody the clearest symbols of Roman virtue: discipline, civic duty, and resistance to corruption; rooted in Stoic virtue, republican liberty, and moral austerity. They believed that a healthy society depends on citizens who value duty above comfort, integrity above wealth, and freedom above power. Those who stand firm for principle even when the world around them yields to ambition and decay.
+          </p>
+          <p>
+            Centinel writing as part of the Anti-Federalists, he warned that concentrating power in a strong national government could erode the liberties the American Revolution had just secured. Centinel argued that republics survive only when political authority remains close to the people and when citizens maintain constant vigilance against elites who might consolidate power. His essays emphasized local self-government, a broad and representative legislature, and protections for individuals that helped shape the later adoption of the United States Bill of Rights.
+          </p>
+          <p>
+            Farmers are the quiet backbone and feet of civilization, turning soil, sunlight, and rain into the steady food supply that allows cities to exist, knowledge to flourish, and every other profession to survive.
+          </p>
+          <p>
+            The author is a veteran of the USMC reserves with 8 years’ service in military intelligence. Separately he was the primary analyst who calculated the gross domestic product by state and by industry. He also created his own financial management firm where he built a robo-trader using hypergame theory and artificial intelligence to recognize and react to changing behaviors of adversaries and emerging patterns in financial markets. 
+          </p>
+          <p>
+            The rest of his career has focused on broader data analysis in the Intelligence Community where he has connected non-traditional data sources into a holistic picture that has been used for predictive analytics and advanced the kill chain with AI. He has sworn to defend the constitution against all enemies foreign and domestic. Then tragedy struck, yet he is still committed to protecting stable civilization. He will arm his fellows with the information to help them survive, revive and thrive both in their families and after tragedy.
+          </p>
+          <p>
+            The tragedy has propelled me to write a three-book series on how to rebuild civilization with a community based constitutional government I call a Limitocracy. It is not like any government ever seen or theorized. I wrote down the concept for a political science theoretical paper that no one was intended to read. Now I am crafting it into a compelling story with the heroes of a tragedy forming the Limitocracy so that they will not suffer under foreign rule (be that human or AI).
+          </p>
+          <p>
+            In the future, the plan is to launch a book of fables to help people out of prison, both mental and physical ones. And if I still have energy after that, and WWIII has not made it impossible, then I will write a series of children’s stories teaching them how to read with an experimental phonetics type. 
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://www.amazon.com/Survive-After-Flash-Book-1-ebook/dp/B0GT2GH4PQ/" target="_blank" rel="noreferrer">Get the Book</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="page-width final-cta">
+        <div class="cta-layout">
+          <div>
+            <span class="eyebrow">Read it now</span>
+            <h2 class="section-heading">Step into After the Flash with Survive.</h2>
+            <p class="section-text">
+              The book is live on Amazon. Follow the link, open the store page, and jump into book one.
+            </p>
+          </div>
+          <a class="button" href="https://www.amazon.com/Survive-After-Flash-Book-1-ebook/dp/B0GT2GH4PQ/" target="_blank" rel="noreferrer">Open Amazon Store</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-width footer-row">
+      <p class="footer-copy">Survive by Cato Centinel Farmer. After the Flash series, book one.</p>
+      <p>Copyright © 2023 Cato Centinel Farmer. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
